@@ -1,0 +1,36 @@
+{
+  "car": [
+    {
+    "model": "Cls500",
+    "photo": "https://images.pexels.com/photos/112460/pexels-photo-112460.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    "price": "6000$",
+    "description": "mersedes"
+    },
+    {
+    "model": "D1000",
+    "photo": "https://amp.businessinsider.com/images/5a9eec4b5cc4104d058b45cb-750-562.jpg",
+    "price": "9000$",
+    "description": "Ducatti"
+    },
+
+    {
+    "model": "m850",
+    "photo": "https://3dwarehouse.sketchup.com/warehouse/v1.0/publiccontent/c34d218c-dcd8-40e7-9b49-ced572aad38d",
+    "price": "8100$",
+    "description": "Mustang"
+    },
+    {
+    "model": "J120",
+    "photo": "https://stimg.cardekho.com/images/carexteriorimages/630x420/Jaguar/Jaguar-XJ/6710/1549868337266/front-left-side-47.jpg",
+    "price": "4000$",
+    "description": "Jaguar"
+    },
+    {
+    "model": "RN888",
+    "photo": "https://auto.ndtvimg.com/car-images/big/renault/kwid/renault-kwid.jpg?v=60",
+    "price": "6000$",
+    "description": "Reno"
+    }
+  ]
+
+}
