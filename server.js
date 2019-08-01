@@ -3,47 +3,35 @@ const fs = require('fs');
 const path = require('path');
 const url = require("url");
 const cars =require("./cars");
-// let mass= cars["car"];
-// let str = JSON.stringify(cars,null,2);
 
 
 const server = http.createServer((req, res) => {
     if(req.url !== '/favicon.ico'){
         let pathname = url.parse(req.url).pathname;
-        console.log(pathname);
         let filePath = path.basename(req.url);
-        console.log(filePath);
-
-        cars["car"].forEach(function(item,i) {
-            if(pathname==='/') {
-                res.writeHead(200, 'utf-8', {'Content-type': 'text/html'});
-                res.write(`<h1>We sales cars:</h1>`);
-                for (let j=0; j<cars["car"].length;j++) {
-                    res.write(`<a href="${j}">${cars["car"][j]["model"]}</a></br>`);
-                }
-                res.end();
+        if(pathname==='/') {
+            res.writeHead(200, 'utf-8', {'Content-type': 'text/html'});
+            res.write(`<h1 style="display:block; width:300px; margin:0 auto; padding: 10px 0; text-align:center;">We sales cars:</h1>`);
+            for (let j=0; j<cars["car"].length;j++) {
+                res.write(`<a href="${j}" style="display:block; width:300px; margin:0 auto; padding: 10px 0; text-align:center;">${cars["car"][j].model}</a></br>`);
             }
-            else if(Number(filePath)===i) {
-                res.writeHead(200, 'utf-8', {'Content-type': 'text/html'});
-                res.write(`<h1>${cars["car"][i]["model"]}</h1></br>`);
-                console.log(cars["car"][i]['model']);
-                res.end();
-            }
-        })
+            res.end();
+        } else {
+            cars["car"].forEach(function(item,i) {
+                if(filePath==i) {
+                    res.writeHead(200, 'utf-8', {'Content-type': 'text/html'});
+                    console.log( item);
+                    res.write(`<div style="width:300px; margin:0 auto;" > <div style="width:300px;"><img src=${item.photo} alt="picture" style="width: 100%;" /></div>
+                    <h1  style="width:300px; text-align:center;">${item.model}</h1>
+                    <div  style="width:300px; text-align:center;">${item.price}</div>
+                    <p style="width:300px; text-align:center;">${item.description}</p> </div>`)
+                    res.end();
+                 }
+             })
+                              
 
-
-
-
-        //     console.log(filePath);
-        //         console.log(cars["car"][i]['model']);
-        //         res.writeHead(200, 'utf-8', {'Content-type': 'text/html'});
-        //         res.write(`<h1>${cars["car"][i]['model']}</h1>`);
-        //         res.end();
-        //     }else {}
-            // let filePath = path.join(__dirname,pathname==="/"?);
-            // res.writeHead(200, 'utf-8', {'Content-type': 'text/html'});
-            // res.write("Hello World");
-        // })
+        }
+      
     }
 });
 server.listen(3000, () => {
