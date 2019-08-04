@@ -1,12 +1,10 @@
 const http = require('http');
-const fs = require('fs');
 const path = require('path');
 const url = require("url");
 const cars =require("./cars");
 
 
 const server = http.createServer((req, res) => {
-    if(req.url !== '/favicon.ico'){
         let pathname = url.parse(req.url).pathname;
         let filePath = path.basename(req.url);
         if(pathname==='/') {
@@ -28,11 +26,8 @@ const server = http.createServer((req, res) => {
                     res.end();
                  }
              })
-                              
-
         }
-      
-    }
+        res.end(`<h1 style="text-align:center;">404</h1>`);
 });
 server.listen(3000, () => {
     console.log('Listening 3000');
